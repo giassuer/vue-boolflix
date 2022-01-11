@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     
-    <Header />
-    <Main />
+    <Header @eventoCustom='getUserFilm()'/>
     {{getFilm}}
+    <Main />
   </div>
 </template>
 
@@ -21,22 +21,31 @@ export default {
 
   data: function() {
         return {
-          filmList: []
+          filmList: [],
+          searchQuery:''
         };
     },
 
     methods: {
+      /*
+       Dalla search bar, al click del button -> emit del valore inserito
+       Passi il valore a getFilm (o te lo salvi in altra variabile)
+      */
       getFilm: function(){
+        console.log('Funziona')
         axios.get('https://api.themoviedb.org/3/search/movie',{
         params: {
           api_key: 'f62d7c222a2b0cbf1cc5ebd58556c2c4',
-          query: ''
+          query:this.searchQuery
         }
         })
         .then((response) => {
+          console.log(response)
            this.filmList = response.data.results;
         });
-           console.log(getFilm);     
+      },
+      getNewUserFilm: function(){
+        this.searchQuery = 
       }
     }
 

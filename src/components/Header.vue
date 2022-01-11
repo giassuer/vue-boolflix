@@ -1,8 +1,8 @@
 <template>
     <div class="header">
         <div class="search">
-            <input type="search" name="" id="">
-            <button>search</button>
+            <input v-model="userFilm" type="search" name="" id="">
+            <button @click="$emit('eventoCustom'),getUserFilm()">search</button>
         </div>
     </div>
 </template>
@@ -13,5 +13,20 @@ export default {
   props: {
     
   },
+  data: function() {
+        return {
+          userFilm: ''
+        };
+    },
+
+    methods: {
+        getUserFilm: function() {
+            let newUserFilm
+            if (this.userFilm.length > 0) {
+                newUserFilm = this.userFilm
+            }
+            return newUserFilm
+        }
+    }
 };
 </script>
