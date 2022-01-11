@@ -1,6 +1,10 @@
 <template>
     <div class="mainr">
-        main
+        <ul>
+            <li v-for="(element, index) in myMovies" :key="index">
+                {{ element.title }}
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -8,7 +12,7 @@
 export default {
   name: "Main",
   props: {
-    
+    myMovies: Array
   },
 };
 </script>

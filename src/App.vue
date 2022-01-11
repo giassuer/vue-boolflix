@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     
-    <Header @eventoCustom='getUserFilm()'/>
-    {{getFilm}}
-    <Main />
+    <Header @eventoCustom='getUserFilm'/>
+
+    <Main :myMovies="filmList" />
   </div>
 </template>
 
@@ -40,12 +40,12 @@ export default {
         }
         })
         .then((response) => {
-          console.log(response)
            this.filmList = response.data.results;
+           console.log(this.filmList);
         });
       },
-      getNewUserFilm: function(){
-        this.searchQuery = 
+      getUserFilm: function(query){
+        this.searchQuery = query
       }
     }
 

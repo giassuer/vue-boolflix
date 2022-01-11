@@ -2,7 +2,7 @@
     <div class="header">
         <div class="search">
             <input v-model="userFilm" type="search" name="" id="">
-            <button @click="$emit('eventoCustom'),getUserFilm()">search</button>
+            <button @click="$emit('eventoCustom',userFilm)">search</button>
         </div>
     </div>
 </template>
@@ -20,13 +20,7 @@ export default {
     },
 
     methods: {
-        getUserFilm: function() {
-            let newUserFilm
-            if (this.userFilm.length > 0) {
-                newUserFilm = this.userFilm
-            }
-            return newUserFilm
-        }
+        
     }
 };
 </script>
