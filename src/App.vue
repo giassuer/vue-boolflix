@@ -3,7 +3,7 @@
     
     <Header />
     <Main />
-
+    {{filmList}}
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
 
   data: function() {
         return {
-
+          filmList: []
         };
     },
 
@@ -33,6 +33,10 @@ export default {
           query: ''
         }
         })
+        .then((response) => {
+                this.filmList = response.data;
+                });
+                
       }
     }
 
