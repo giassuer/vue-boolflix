@@ -3,7 +3,7 @@
     
     <Header />
     <Main />
-    {{filmList}}
+    {{getFilm}}
   </div>
 </template>
 
@@ -34,9 +34,9 @@ export default {
         }
         })
         .then((response) => {
-                this.filmList = response.data;
-                });
-                
+           this.filmList = response.data.results;
+        });
+           console.log(getFilm);     
       }
     }
 
