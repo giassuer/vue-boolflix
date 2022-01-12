@@ -1,6 +1,12 @@
 <template>
     <div class="series-card">
         <ul>
+            <li v-if="details.backdrop_path != null">
+                <img :src="'http://image.tmdb.org/t/p/w500/' + details.backdrop_path" alt="">
+            </li>
+            <li v-else>
+                {{'image not found'}}
+            </li>
             <li>
                 {{ details.name }}
             </li>
@@ -8,7 +14,7 @@
                 {{ details.original_name }}
             </li>
             <li v-if="details.original_language === 'it' || details.original_language === 'en'">
-                <img :src="require('../assets/img/' + details.original_language + '.png')" alt="">
+                <img class="flag" :src="require('../assets/img/' + details.original_language + '.png')" alt="">
             </li>
             <li>
                 {{ details.vote_average }}
@@ -26,14 +32,12 @@ export default {
 
   data: function(){
       return{
-          flags: ''
+          
       }
   },
 
   methods: {
-        getFlagName: function(){
-           
-        }
+
     }
 };
 </script>

@@ -81,7 +81,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-img{
+.flag{
   width: 20px;
 }
 </style>
