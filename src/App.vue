@@ -32,7 +32,6 @@ export default {
        Passi il valore a getFilm (o te lo salvi in altra variabile)
       */
       getFilm: function(){
-        console.log('Funziona')
         axios.get('https://api.themoviedb.org/3/search/movie',{
         params: {
           api_key: 'f62d7c222a2b0cbf1cc5ebd58556c2c4',
@@ -61,5 +60,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+img{
+  width: 20px;
 }
 </style>

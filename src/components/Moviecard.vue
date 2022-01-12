@@ -7,8 +7,8 @@
             <li>
                 {{ details.original_title }}
             </li>
-            <li>
-                {{ details.original_language }}
+            <li v-if="details.original_language === 'it' || 'en'">
+                <img :src="require('../assets/img/' + details.original_language + '.png')" alt="">
             </li>
             <li>
                 {{ details.vote_average }}
@@ -23,5 +23,17 @@ export default {
   props: {
     details: Object
   },
+
+  data: function(){
+      return{
+          flags: ''
+      }
+  },
+
+  methods: {
+        getFlagName: function(){
+           
+        }
+    }
 };
 </script>
