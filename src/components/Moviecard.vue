@@ -20,9 +20,17 @@
                 {{details.original_language}}
             </li>
             <li>
-                {{ transformVote() }}
+                <div class="star" v-for="n in 5" :key="n">
+                    <div class="star" v-if="n <= transformVote()">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="star" v-else>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>  
             </li>
         </ul>
+        
     </div>
 </template>
 
@@ -36,20 +44,17 @@ export default {
   data: function(){
       return{
           vote: []
+          
       }
   },
 
   methods: {
       transformVote: function(){
-        let newVote = Math.floor(this.details.vote_average);
-        if (newVote > 5) {
-            newVote = 5
-        }else{
-            newVote === newVote
-        }
-        this.vote.push(newVote)
-        return newVote
-      }
+          let newVoto = Math.ceil(this.details.vote_average / 2)
+          this.vote.push(newVoto)
+          return newVoto  
+      },
+
     }
 };
 </script>

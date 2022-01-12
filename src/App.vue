@@ -84,4 +84,7 @@ export default {
 .flag{
   width: 20px;
 }
+.star{
+  display: inline-block;
+}
 </style>

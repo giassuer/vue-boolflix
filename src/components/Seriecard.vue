@@ -17,7 +17,14 @@
                 <img class="flag" :src="require('../assets/img/' + details.original_language + '.png')" alt="">
             </li>
             <li>
-                {{ details.vote_average }}
+                <div class="star" v-for="n in 5" :key="n">
+                    <div class="star" v-if="n <= transformVote()">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="star" v-else>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>  
             </li>
         </ul>
     </div>
@@ -32,12 +39,16 @@ export default {
 
   data: function(){
       return{
-          
+          vote: []
       }
   },
 
   methods: {
-
+      transformVote: function(){
+          let newVoto = Math.ceil(this.details.vote_average / 2)
+          this.vote.push(newVoto)
+          return newVoto  
+      },
     }
 };
 </script>
