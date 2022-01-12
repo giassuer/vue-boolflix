@@ -7,7 +7,7 @@
             <li>
                 {{ details.original_name }}
             </li>
-            <li v-if="details.original_language === 'it' || 'en'">
+            <li v-if="details.original_language === 'it' || details.original_language === 'en'">
                 <img :src="require('../assets/img/' + details.original_language + '.png')" alt="">
             </li>
             <li>

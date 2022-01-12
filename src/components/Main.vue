@@ -1,6 +1,7 @@
 <template>
     <div class="mainr">
       <div class="movies">
+        {{flag}}
         <h2>Lista Film</h2>
       <Moviecard v-for="(element, index) in myMovies" :key="index" :details="element" />
       </div>
@@ -27,5 +28,20 @@ export default {
     myMovies: Array,
     mySeries: Array
   },
+
+  data: function(){
+    return{
+      flag: ''
+    }
+  },
+
+  methods: {
+        getFlagName: function(){
+          
+           this.myMovies.filter((element) =>{
+             this.flag = element.original_language
+           }) 
+        }
+    }
 };
 </script>
