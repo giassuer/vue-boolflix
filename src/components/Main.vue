@@ -1,11 +1,7 @@
 <template>
     <div class="mainr">
-      <Moviecard v-for="(element, index) in myMovies" :key="index" />
-        <!-- <ul>
-            <li v-for="(element, index) in myMovies" :key="index">
-                {{ element.title }}
-            </li>
-        </ul> -->
+      <Moviecard v-for="(element, index) in myMovies" :key="index" :details="element" />
+        
     </div>
 </template>
 

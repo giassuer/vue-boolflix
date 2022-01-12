@@ -2,7 +2,16 @@
     <div class="movie-card">
         <ul>
             <li>
-               ciao {{ element.title }}
+                {{ details.title }}
+            </li>
+            <li>
+                {{ details.original_title }}
+            </li>
+            <li>
+                {{ details.original_language }}
+            </li>
+            <li>
+                {{ details.vote_average }}
             </li>
         </ul>
     </div>
@@ -12,7 +21,7 @@
 export default {
   name: "Moviecard",
   props: {
-    
+    details: Object
   },
 };
 </script>
