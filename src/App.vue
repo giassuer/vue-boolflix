@@ -3,7 +3,7 @@
     
     <Header @eventoCustom='getUserFilm'/>
 
-    <Main :myMovies="filmList" />
+    <Main :myMovies="filmList" :mySeries="seriesList" />
   </div>
 </template>
 
@@ -22,6 +22,7 @@ export default {
   data: function() {
         return {
           filmList: [],
+          seriesList: [],
           searchQuery:''
         };
     },
@@ -43,9 +44,28 @@ export default {
            console.log(this.filmList);
         });
       },
+
+
+
+      getSerie: function(){
+        axios.get('https://api.themoviedb.org/3/search/tv',{
+        params: {
+          api_key: 'f62d7c222a2b0cbf1cc5ebd58556c2c4',
+          query:this.searchQuery
+        }
+        })
+        .then((response) => {
+           this.seriesList = response.data.results;
+           console.log(this.seriesList);
+        });
+      },
+
+
+
       getUserFilm: function(query){
         this.searchQuery = query
         this.getFilm()
+        this.getSerie()
       }
     }
 
