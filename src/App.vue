@@ -46,6 +46,7 @@ export default {
       },
       getUserFilm: function(query){
         this.searchQuery = query
+        this.getFilm()
       }
     }
 

@@ -1,16 +1,22 @@
 <template>
     <div class="mainr">
-        <ul>
+      <Moviecard v-for="(element, index) in myMovies" :key="index" />
+        <!-- <ul>
             <li v-for="(element, index) in myMovies" :key="index">
                 {{ element.title }}
             </li>
-        </ul>
+        </ul> -->
     </div>
 </template>
 
 <script>
+import Moviecard from "../components/Moviecard.vue";
+
 export default {
   name: "Main",
+  components: {
+  Moviecard
+},
   props: {
     myMovies: Array
   },
