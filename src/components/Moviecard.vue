@@ -20,7 +20,7 @@
                 {{details.original_language}}
             </li>
             <li>
-                {{ details.vote_average }}
+                {{ transformVote() }}
             </li>
         </ul>
     </div>
@@ -35,13 +35,21 @@ export default {
 
   data: function(){
       return{
-
+          vote: []
       }
   },
 
   methods: {
-           
-        
+      transformVote: function(){
+        let newVote = Math.floor(this.details.vote_average);
+        if (newVote > 5) {
+            newVote = 5
+        }else{
+            newVote === newVote
+        }
+        this.vote.push(newVote)
+        return newVote
+      }
     }
 };
 </script>
