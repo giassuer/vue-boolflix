@@ -3,7 +3,7 @@
         <ul>
             <li v-if="details.backdrop_path != null">
                 <div class="img-container">
-                    <img :src="'http://image.tmdb.org/t/p/w500/' + details.backdrop_path" alt="">
+                    <img :src="'http://image.tmdb.org/t/p/w342/' + details.backdrop_path" alt="">
                 </div> 
             </li>
             <li v-else>
