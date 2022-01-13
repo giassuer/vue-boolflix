@@ -13,10 +13,10 @@
             </li>
             <div class="list-container">
                 <li>
-                    Titolo: {{ details.title }}
+                    Titolo: {{ details.title ? details.title : details.name }}
                 </li>
                 <li>
-                     Titolo originale:  {{ details.original_title }}
+                     Titolo originale:  {{ details.original_title ? details.original_title : details.original_name }}
                 </li>
                 <li v-if="details.original_language === 'it' || details.original_language === 'en'">
                     Lingua <img class="flag" :src="require('../assets/img/' + details.original_language + '.png')" alt="">
