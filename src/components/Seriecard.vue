@@ -1,31 +1,43 @@
 <template>
-    <div class="series-card">
+    <div class="cards-container">
         <ul>
-            <li v-if="details.backdrop_path != null">
-                <img :src="'http://image.tmdb.org/t/p/w500/' + details.backdrop_path" alt="">
+            <li class="img-container" v-if="details.backdrop_path != null">
+                <div class="img-container">
+                    <img :src="'http://image.tmdb.org/t/p/w500/' + details.backdrop_path" alt="">
+                </div> 
             </li>
-            <li v-else>
-                {{'image not found'}}
+            <li class="img-container" v-else>
+                <div class="img-container">
+                    <img src="../assets/img/image-not-found.jpg" alt="">
+                </div>
             </li>
-            <li>
-                {{ details.name }}
-            </li>
-            <li>
-                {{ details.original_name }}
-            </li>
-            <li v-if="details.original_language === 'it' || details.original_language === 'en'">
-                <img class="flag" :src="require('../assets/img/' + details.original_language + '.png')" alt="">
-            </li>
-            <li>
-                <div class="star" v-for="n in 5" :key="n">
-                    <div class="star" v-if="n <= transformVote()">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="star" v-else>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>  
-            </li>
+            <div class="list-container">
+                <li>
+                    Titolo: {{ details.name }}
+                </li>
+                <li>
+                    Titolo originale: {{ details.original_name }}
+                </li>
+                <li v-if="details.original_language === 'it' || details.original_language === 'en'">
+                    Lingua <img class="flag" :src="require('../assets/img/' + details.original_language + '.png')" alt="">
+                </li>
+                <li v-else>
+                    Lingua {{details.original_language}}
+                </li>
+                <li>
+                    <div class="star" v-for="n in 5" :key="n">
+                        <div class="star" v-if="n <= transformVote()">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="star" v-else>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>  
+                </li>
+                <li>
+                    {{details.overview}}
+                </li>
+            </div>
         </ul>
     </div>
 </template>

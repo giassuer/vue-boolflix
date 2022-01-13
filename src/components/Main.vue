@@ -1,13 +1,12 @@
 <template>
-    <div class="mainr">
-      <div class="movies">
-        {{flag}}
-        <h2>Lista Film</h2>
+    <div class="main">
+      <h2 class="title-list">Lista Film</h2>
+      <div class="titles-container">
       <Moviecard v-for="(element, index) in myMovies" :key="index" :details="element" />
       </div>
 
-      <div class="series">
-        <h2>Lista SerieTV</h2>
+      <h2 class="title-list">Lista SerieTV</h2>
+      <div class="titles-container">
       <Seriecard v-for="(element, index) in mySeries" :key="index" :details="element" />
       </div>
         
@@ -40,3 +39,7 @@ export default {
     }
 };
 </script>
+
+<style lang="scss">
+@import '../style/general.scss';
+</style>
