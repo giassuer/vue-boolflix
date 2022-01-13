@@ -43,7 +43,6 @@ export default {
 
   data: function(){
       return{
-          vote: []
           
       }
   },
@@ -51,7 +50,7 @@ export default {
   methods: {
       transformVote: function(){
           let newVoto = Math.ceil(this.details.vote_average / 2)
-          this.vote.push(newVoto)
+
           return newVoto  
       },
 

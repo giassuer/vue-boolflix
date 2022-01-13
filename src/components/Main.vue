@@ -36,12 +36,7 @@ export default {
   },
 
   methods: {
-        getFlagName: function(){
-          
-           this.myMovies.filter((element) =>{
-             this.flag = element.original_language
-           }) 
-        }
+        
     }
 };
 </script>
